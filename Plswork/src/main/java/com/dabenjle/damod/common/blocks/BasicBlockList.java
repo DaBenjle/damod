@@ -33,7 +33,8 @@ public class BasicBlockList
 			}
 		}, "slick_ice", new Item.Properties().rarity(EnumRarity.UNCOMMON).addToolType(ToolType.SHOVEL, 1).group(ItemGroup.BUILDING_BLOCKS));
 		new BasicBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(.9f), "thicc_dirt",
-						new Item.Properties().rarity(EnumRarity.RARE).group(ItemGroup.BUILDING_BLOCKS));
+				new Item.Properties().rarity(EnumRarity.RARE).group(ItemGroup.BUILDING_BLOCKS));
+		new BasicBlock(new MyChestTileEntityBlock(Block.Properties.create(Material.SAND)), "my_chest", new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 		
 		// calls creation for itemblocks after all blocks are created
 		BasicItemBlockList.constructItemsFromBasicBlocks();

@@ -2,7 +2,7 @@ package com.dabenjle.damod;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -22,6 +22,8 @@ import com.dabenjle.damod.common.items.BasicItem;
 import com.dabenjle.damod.common.items.BasicItemBlock;
 import com.dabenjle.damod.common.items.BasicItemBlockList;
 import com.dabenjle.damod.common.items.BasicItemList;
+import com.dabenjle.damod.common.tileEntities.types.BasicTileEntityType;
+import com.dabenjle.damod.common.tileEntities.types.BasicTileEntityTypeList;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("damod")
@@ -99,6 +101,15 @@ public class DaMod
 		{
 			BasicItemList.basicItems.iterator().forEachRemaining((BasicItem b) -> itemRegistryEvent.getRegistry().register(b.item));
 			BasicItemBlockList.basicItemBlocks.iterator().forEachRemaining((BasicItemBlock b) -> itemRegistryEvent.getRegistry().register(b.itemBlock));
+		}
+		
+		@SubscribeEvent
+		public static void onTileEntitiesRegistry(final RegistryEvent.Register<TileEntityType<?>> tileEntityRegistryEvent)
+		{
+			BasicTileEntityTypeList.basicTileEntityTypes.iterator().forEachRemaining((BasicTileEntityType b) -> 
+			{
+				tileEntityRegistryEvent.getRegistry().register(b.tileEntityType);
+			});
 		}
 	}
 }
